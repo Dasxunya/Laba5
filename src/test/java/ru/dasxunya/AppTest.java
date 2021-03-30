@@ -108,7 +108,7 @@ public class AppTest {
     @Test
     void MenuAddTest() {
         launchApplication(
-                collectStrings("add", "Дима", "123L", "asdgasdgds", "34", "46L", "46", EXIT),
+                collectStrings("add", "Дима", "123L", "asdgasdgds", "34", "46L", "47", EXIT),
                 collectStrings("Добавление элемента в коллекцию:",
                         "Введите имя: ",
                         "Создание координат: ",
