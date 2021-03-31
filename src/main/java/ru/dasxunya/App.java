@@ -49,10 +49,10 @@ print_unique_weapon_type : вывести уникальные значения 
 
 public class HumanBeing {
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private String name; //Поле не может быть null, Строка не может быть пустой
+    private String name; //Поле не может быть null, Строка не может быть пустой+(проверка на пустое имя!)
 
-    private Coordinates coordinates; //Поле не может быть null
-    private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private Coordinates coordinates; //Поле не может быть null+
+    private java.time.ZonedDateTime creationDate; (?)//Поле не может быть null, Значение этого поля должно генерироваться автоматически
 
     private Boolean realHero; //Поле не может быть null
     private boolean hasToothpick;
@@ -106,24 +106,24 @@ public class App {
                 case "help" -> {
                     System.out.println(
                             """
-                             Меню:                             
-                             help : вывести справку по доступным командам
-                             info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
-                             show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
-                             add {element} : добавить новый элемент в коллекцию
-                             update id {element} : обновить значение элемента коллекции, id которого равен заданному
-                             remove_by_id id : удалить элемент из коллекции по его id
-                             clear : очистить коллекцию
-                             save : сохранить коллекцию в файл
-                             execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
-                             exit : завершить программу (без сохранения в файл)
-                             add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
-                             add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
-                             history : вывести последние 11 команд (без их аргументов)
-                             max_by_soundtrack_name : вывести любой объект из коллекции, значение поля soundtrackName которого является максимальным
-                             filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
-                             print_unique_weapon_type : вывести уникальные значения поля weaponType всех элементов в коллекции
-                             """
+                                    Меню:                             
+                                    help : вывести справку по доступным командам
+                                    info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
+                                    show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
+                                    add {element} : добавить новый элемент в коллекцию
+                                    update id {element} : обновить значение элемента коллекции, id которого равен заданному
+                                    remove_by_id id : удалить элемент из коллекции по его id
+                                    clear : очистить коллекцию
+                                    save : сохранить коллекцию в файл
+                                    execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
+                                    exit : завершить программу (без сохранения в файл)
+                                    add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
+                                    add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
+                                    history : вывести последние 11 команд (без их аргументов)
+                                    max_by_soundtrack_name : вывести любой объект из коллекции, значение поля soundtrackName которого является максимальным
+                                    filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
+                                    print_unique_weapon_type : вывести уникальные значения поля weaponType всех элементов в коллекции
+                                    """
 
 
                     );
@@ -136,7 +136,6 @@ public class App {
                 }
                 case "add" -> {
                     System.out.println("Добавление элемента в коллекцию:");
-
 
                     // TODO: генерируем идентификатор.
                     Integer id = 10;
@@ -153,47 +152,89 @@ public class App {
                     if (name == null) {
                         throw new NullPointerException("name не может быть null!");
                     }
-                    if (name.equals("")) {
+                    if (name.equals(" ")) {
                         throw new IllegalArgumentException("Введите значение для name!");
                     }
 
                     System.out.println("Создание координат: ");
 
                     Long x = null;
-                    while (true)
-                    {
+                    while (true) {
                         System.out.println("Введите x: ");
 
-                        try
-                        {
+                        try {
                             x = Long.valueOf(scanner.next());
                             break;
-                        }
-                        catch (NumberFormatException exception)
-                        {
+                        } catch (NumberFormatException exception) {
                             System.out.println("Некорректный аргумент для переменной х!");
                         }
                     }
 
                     int y;
 
-                    while (true)
-                    {
+                    while (true) {
                         System.out.println("Введите y: ");
 
-                        try
-                        {
+                        try {
                             y = Integer.parseInt(scanner.next());
                             break;
-                        }
-                        catch (NumberFormatException exception)
-                        {
+                        } catch (NumberFormatException exception) {
                             System.out.println("Некорректный аргумент для переменной y!");
                         }
                     }
 
                     Coordinates coordinates = new Coordinates(x, y);
 
+                    System.out.println("Является ли человек реальным: ");
+
+                   /* Boolean realHero;
+                    while (true) {
+                        System.out.println("Человеческое существо реально? ");
+                        try {
+                            if (scanner.next().equals("true")) {
+                                realHero = true;
+                                break;
+                            }
+                            if (scanner.next().equals("false")) {
+                                realHero = false;
+                                break;
+                            }
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Некорректный аргумент для realHero (Необходимо: true или false)! ");
+                        }
+                    }*/
+
+                    System.out.println("Имеется ли у существа зубочистка: ");
+
+                     /*Boolean hasToothpick;
+                    while (true) {
+                        System.out.println("Человеческое существо с зубочисткой? ");
+                        try {
+                            if (scanner.next().equals("true")) {
+                                hasToothpick = true;
+                                break;
+                            }
+                            if (scanner.next().equals("false")) {
+                                hasToothpick = false;
+                                break;
+                            }
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Некорректный аргумент для hasToothpick (Необходимо: true или false)! ");
+                        }
+                    }*/
+
+                    System.out.println("Скорость удара существа: ");
+                    Double impactSpeed;
+                    while (true) {
+                        System.out.println("Введите скорость удара: ");
+
+                        try {
+                            impactSpeed = Double.parseDouble(scanner.nextLine());
+                            break;
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Некорректный аргумент для переменной impactSpeed (Необходимо: [0;10])! ");
+                        }
+                    }
 
 //                    HumanBeing humanBeing = new HumanBeing(id, name, coordinates, )
 //
