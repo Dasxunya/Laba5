@@ -9,5 +9,11 @@ public class Car {
         this.cool = cool;
     }
 
-
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", cool=" + cool +
+                '}';
+    }
 }

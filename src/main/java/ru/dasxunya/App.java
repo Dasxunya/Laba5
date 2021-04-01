@@ -1,5 +1,8 @@
 package ru.dasxunya;
 
+import ru.dasxunya.menu.Add;
+import ru.dasxunya.menu.Update;
+
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -56,7 +59,7 @@ public class HumanBeing {
 
     private Boolean realHero; //Поле не может быть null
     private boolean hasToothpick;
-    private Double impactSpeed; //Максимальное значение поля: 10, Поле может быть null
+    private Double impactSpeed; //Максимальное значение поля: 10, Поле МОЖЕТ быть null
     private String soundtrackName; //Поле не может быть null
 
     private WeaponType weaponType; //Поле не может быть null
@@ -93,7 +96,7 @@ public enum Mood {
  */
 public class App {
 
-    static TreeSet<HumanBeing> humanBeings = new TreeSet<>();
+    public static TreeSet<HumanBeing> humanBeings = new TreeSet<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -135,114 +138,12 @@ public class App {
                     System.out.println("Элементы коллекции:");
                 }
                 case "add" -> {
-                    System.out.println("Добавление элемента в коллекцию:");
+                    Add.add(scanner);
 
-                    // TODO: генерируем идентификатор.
-                    Integer id = 10;
-
-                    if (id == null) {
-                        throw new NullPointerException("id оказался null!");
-                    }
-                    if (id <= 0) {
-                        throw new IllegalArgumentException("id не может быть отрицательным или равным нулю!");
-                    }
-
-                    System.out.println("Введите имя: ");
-                    String name = scanner.next();
-                    if (name == null) {
-                        throw new NullPointerException("name не может быть null!");
-                    }
-                    if (name.equals(" ")) {
-                        throw new IllegalArgumentException("Введите значение для name!");
-                    }
-
-                    System.out.println("Создание координат: ");
-
-                    Long x = null;
-                    while (true) {
-                        System.out.println("Введите x: ");
-
-                        try {
-                            x = Long.valueOf(scanner.next());
-                            break;
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Некорректный аргумент для переменной х!");
-                        }
-                    }
-
-                    int y;
-
-                    while (true) {
-                        System.out.println("Введите y: ");
-
-                        try {
-                            y = Integer.parseInt(scanner.next());
-                            break;
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Некорректный аргумент для переменной y!");
-                        }
-                    }
-
-                    Coordinates coordinates = new Coordinates(x, y);
-
-                    System.out.println("Является ли человек реальным: ");
-
-                   /* Boolean realHero;
-                    while (true) {
-                        System.out.println("Человеческое существо реально? ");
-                        try {
-                            if (scanner.next().equals("true")) {
-                                realHero = true;
-                                break;
-                            }
-                            if (scanner.next().equals("false")) {
-                                realHero = false;
-                                break;
-                            }
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Некорректный аргумент для realHero (Необходимо: true или false)! ");
-                        }
-                    }*/
-
-                    System.out.println("Имеется ли у существа зубочистка: ");
-
-                     /*Boolean hasToothpick;
-                    while (true) {
-                        System.out.println("Человеческое существо с зубочисткой? ");
-                        try {
-                            if (scanner.next().equals("true")) {
-                                hasToothpick = true;
-                                break;
-                            }
-                            if (scanner.next().equals("false")) {
-                                hasToothpick = false;
-                                break;
-                            }
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Некорректный аргумент для hasToothpick (Необходимо: true или false)! ");
-                        }
-                    }*/
-
-                    System.out.println("Скорость удара существа: ");
-                    Double impactSpeed;
-                    while (true) {
-                        System.out.println("Введите скорость удара: ");
-
-                        try {
-                            impactSpeed = Double.parseDouble(scanner.nextLine());
-                            break;
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Некорректный аргумент для переменной impactSpeed (Необходимо: [0;10])! ");
-                        }
-                    }
-
-//                    HumanBeing humanBeing = new HumanBeing(id, name, coordinates, )
-//
-//
-//                    humanBeings.add(humanBeing);
                 }
                 case "update_id" -> {
-                    System.out.println("Обновлен элемент коллекции:");
+                    System.out.println("Обновление элемента коллекции:");
+                    Update.update(scanner);
                 }
                 case "remove_by_id" -> {
                     System.out.println("Удален элемент коллекции:");
