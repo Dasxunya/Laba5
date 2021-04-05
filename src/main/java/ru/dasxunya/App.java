@@ -1,6 +1,7 @@
 package ru.dasxunya;
 
 import ru.dasxunya.menu.Add;
+import ru.dasxunya.menu.Show;
 import ru.dasxunya.menu.Update;
 
 import java.util.Scanner;
@@ -102,6 +103,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String command;
 
+
         while (scanner.hasNext()) {
             command = scanner.next();
 
@@ -136,6 +138,7 @@ public class App {
                 }
                 case "show" -> {
                     System.out.println("Элементы коллекции:");
+                    Show.show(scanner);
                 }
                 case "add" -> {
                     Add.add(scanner);

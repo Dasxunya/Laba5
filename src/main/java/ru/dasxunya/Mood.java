@@ -5,4 +5,9 @@ public enum Mood {
     LONGING,
     CALM,
     RAGE;
+
+    @Override
+    public String toString() {
+        return "Mood{}";
+    }
 }

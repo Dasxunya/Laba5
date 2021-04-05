@@ -3,6 +3,22 @@ package ru.dasxunya;
 import java.time.ZonedDateTime;
 
 public class HumanBeing {
+    @Override
+    public String toString() {
+        return "HumanBeing{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinates=" + coordinates +
+                ", creationDate=" + creationDate +
+                ", realHero=" + realHero +
+                ", hasToothpick=" + hasToothpick +
+                ", impactSpeed=" + impactSpeed +
+                ", soundtrackName='" + soundtrackName + '\'' +
+                ", weaponType=" + weaponType +
+                ", mood=" + mood +
+                ", car=" + car +
+                '}';
+    }
 
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным(?), Значение этого поля должно генерироваться автоматически(?)
     private String name; //Поле не может быть null, Строка не может быть пустой+

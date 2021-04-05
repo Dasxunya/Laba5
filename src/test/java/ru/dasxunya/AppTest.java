@@ -3,118 +3,79 @@ package ru.dasxunya;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-
 public class AppTest {
-    private static final PrintStream originalOutput = System.out;
-    private static final InputStream originalInput = System.in;
-
-    private static final String LINE_SEPARATOR = System.lineSeparator();
-    private static final String EXIT = "exit";
-
-    private ByteArrayOutputStream outputContent;
-    private ByteArrayInputStream inputContent;
-
     @BeforeEach
-    public void setUpStreams() {
-        outputContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputContent));
-    }
-
-    private void provideInput(String data) {
-        inputContent = new ByteArrayInputStream(data.getBytes());
-        System.setIn(inputContent);
+    void setUp() {
+        Utils.setUpStreams();
     }
 
     @AfterEach
-    void restoreStreams() {
-        System.setOut(originalOutput);
-        System.setIn(originalInput);
+    void tearDown() {
+        Utils.restoreStreams();
     }
 
-    private String collectStrings(String... cases) {
-        return String.join(LINE_SEPARATOR, cases).concat(LINE_SEPARATOR);
-    }
-
-
-    private void launchApplication(String input, String expected) {
-        provideInput(input);
-
-        App.main(new String[0]);
-
-        String actual = outputContent.toString();
-
-        Assertions.assertEquals(expected, actual);
-
-    }
 
     @Test
     void MenuExitTest() {
-        launchApplication(EXIT, "");
+        Utils.launchApplication(Utils.EXIT, "");
     }
 
     @Test
     void MenuHelpTest() {
-        launchApplication(
-                collectStrings("help", EXIT),
-                collectStrings(
+        Utils.launchApplication(
+                Utils.collectStrings("help", Utils.EXIT),
+                Utils.collectStrings(
 
                         """
-                              Меню:                             
-                              help : вывести справку по доступным командам
-                              info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
-                              show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
-                              add {element} : добавить новый элемент в коллекцию
-                              update id {element} : обновить значение элемента коллекции, id которого равен заданному
-                              remove_by_id id : удалить элемент из коллекции по его id
-                              clear : очистить коллекцию
-                              save : сохранить коллекцию в файл
-                              execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
-                              exit : завершить программу (без сохранения в файл)
-                              add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
-                              add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
-                              history : вывести последние 11 команд (без их аргументов)
-                              max_by_soundtrack_name : вывести любой объект из коллекции, значение поля soundtrackName которого является максимальным
-                              filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
-                              print_unique_weapon_type : вывести уникальные значения поля weaponType всех элементов в коллекции
-                              """
+                                Меню:                             
+                                help : вывести справку по доступным командам
+                                info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
+                                show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
+                                add {element} : добавить новый элемент в коллекцию
+                                update id {element} : обновить значение элемента коллекции, id которого равен заданному
+                                remove_by_id id : удалить элемент из коллекции по его id
+                                clear : очистить коллекцию
+                                save : сохранить коллекцию в файл
+                                execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
+                                exit : завершить программу (без сохранения в файл)
+                                add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
+                                add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
+                                history : вывести последние 11 команд (без их аргументов)
+                                max_by_soundtrack_name : вывести любой объект из коллекции, значение поля soundtrackName которого является максимальным
+                                filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
+                                print_unique_weapon_type : вывести уникальные значения поля weaponType всех элементов в коллекции
+                                """
                 )
         );
     }
 
     @Test
     void MenuInfoTest() {
-        launchApplication(
-                collectStrings("info", EXIT),
-                collectStrings("Информация о коллекции:")
+        Utils.launchApplication(
+                Utils.collectStrings("info", Utils.EXIT),
+                Utils.collectStrings("Информация о коллекции:")
         );
     }
 
     @Test
     void MenuShowTest() {
-        launchApplication(
-                collectStrings("show", EXIT),
-                collectStrings("Элементы коллекции:")
+        Utils.launchApplication(
+                Utils.collectStrings("show", Utils.EXIT),
+                Utils.collectStrings("Элементы коллекции:")
         );
     }
 
     @Test
     void MenuAddTest() {
 
-        String expected = collectStrings("add", "Дима", "123L", "34", "46L", "47", "ssjhfd" , "true", "shfshf" , "false", "sdfhdsf", "-10", "11", "5", "", "Soundtrack", "", "sgsg", "KNIFE",EXIT);
-        launchApplication(
-                expected,
-                collectStrings("Добавление элемента в коллекцию:",
-                        "Введите имя: ",
-                        "Введите значение для имени!", // FIXME: ЕСТЬ ПРОБЛЕМЫ С ДИМОЙ
-                        "Введите имя: ",
+        String input = Utils.collectStrings("add", "Дима", "123L", "34", "46L", "47", "ssjhfd", "true", "shfshf", "false", "sdfhdsf", "-10", "11", "5", "", "Soundtrack", "", "sgsg", "KNIFE", "", "SADNESS", "", "hgjf", "cghv", "true", Utils.EXIT);
+        Utils.launchApplication(
+                input,
+                Utils.collectStrings("Добавление элемента в коллекцию:",
+
                         "Создание координат: ",
                         "Введите x: ",
                         "Некорректный аргумент для переменной х!",
@@ -145,98 +106,107 @@ public class AppTest {
                         "Тип оружия: ",
                         "Введите тип оружия: ",
                         "Поле не может быть null и должно соответствовать представленному набору(AXE, RIFLE, PISTOL, KNIFE, BAT)!",
-                        "Введите тип оружия: ",
-                        "Поле не может быть null и должно соответствовать представленному набору(AXE, RIFLE, PISTOL, KNIFE, BAT)!",
-                        "Введите тип оружия: "
+                        "Введите настроение: ",
+                        "Поле не может быть null и должно соответствовать представленному набору(SADNESS, LONGING, CALM, RAGE)!",
+                        "Введите настроение: ",
+                        "Характеристики машины: ",
+                        "Введите название автомобиля: ",
+                        // "Название автомобиля не может быть null!",                          //как проверить и null и ""?
+                        //"Введите название автомобиля: ",
+                        "Введите значение для названия автомобиля!",
+                        "Введите название автомобиля: ",
+                        "Машина хорошая?",
+                        "Некорректный аргумент для hasToothpick (Необходимо: true или false)!",
+                        "Машина хорошая?"
                         )
         );
     }
 
     @Test
     void MenuUpdateIdTest() {
-        launchApplication(
-                collectStrings("update_id", EXIT),
-                collectStrings("Обновлен элемент коллекции:")
+        Utils.launchApplication(
+                Utils.collectStrings("update_id", Utils.EXIT),
+                Utils.collectStrings("Обновлен элемент коллекции:")
         );
     }
 
     @Test
     void MenuRemoveIdTest() {
-        launchApplication(
-                collectStrings("remove_by_id", EXIT), //Как обозначить удаление конкретного id?
-                collectStrings("Удален элемент коллекции:")
+        Utils.launchApplication(
+                Utils.collectStrings("remove_by_id", Utils.EXIT), //Как обозначить удаление конкретного id?
+                Utils.collectStrings("Удален элемент коллекции:")
         );
     }
 
     @Test
     void MenuClearTest() {
-        launchApplication(
-                collectStrings("clear", EXIT),
-                collectStrings("Коллекция очищена")
+        Utils.launchApplication(
+                Utils.collectStrings("clear", Utils.EXIT),
+                Utils.collectStrings("Коллекция очищена")
         );
     }
 
     @Test
     void MenuSaveTest() {
-        launchApplication(
-                collectStrings("save", EXIT),
-                collectStrings("Коллекция сохранена в файл")
+        Utils.launchApplication(
+                Utils.collectStrings("save", Utils.EXIT),
+                Utils.collectStrings("Коллекция сохранена в файл")
         );
     }
 
     @Test
     void MenuExecuteScriptTest() {
-        launchApplication(
-                collectStrings("execute_script", EXIT),
-                collectStrings("Считывание и исполнение скрипта")
+        Utils.launchApplication(
+                Utils.collectStrings("execute_script", Utils.EXIT),
+                Utils.collectStrings("Считывание и исполнение скрипта")
         );
     }
 
     @Test
     void MenuAddIfMaxTest() {
-        launchApplication(
-                collectStrings("add_if_max", EXIT),
-                collectStrings("Если элемент больше максимального, добавление в коллекцию")
+        Utils.launchApplication(
+                Utils.collectStrings("add_if_max", Utils.EXIT),
+                Utils.collectStrings("Если элемент больше максимального, добавление в коллекцию")
         );
     }
 
     @Test
     void MenuAddIfMinTest() {
-        launchApplication(
-                collectStrings("add_if_min", EXIT),
-                collectStrings("Если элемент меньше минимального, добавление в коллекцию")
+        Utils.launchApplication(
+                Utils.collectStrings("add_if_min", Utils.EXIT),
+                Utils.collectStrings("Если элемент меньше минимального, добавление в коллекцию")
         );
     }
 
     @Test
     void MenuHistoryTest() {
-        launchApplication(
-                collectStrings("history", EXIT),
-                collectStrings("Последние 11 команд:")
+        Utils.launchApplication(
+                Utils.collectStrings("history", Utils.EXIT),
+                Utils.collectStrings("Последние 11 команд:")
         );
     }
 
     @Test
     void MenuMaxSoundtrackNameTest() {
-        launchApplication(
-                collectStrings("max_soundtrack", EXIT),
-                collectStrings("SoundtrackName является максимальным:")
+        Utils.launchApplication(
+                Utils.collectStrings("max_soundtrack", Utils.EXIT),
+                Utils.collectStrings("SoundtrackName является максимальным:")
         );
     }
 
     @Test
     void MenuFilterStartsWithNameTest() {
-        launchApplication(
-                collectStrings("filter_name", EXIT),
-                collectStrings("Значение поля name начинается с заданной подстроки:")
+        Utils.launchApplication(
+                Utils.collectStrings("filter_name", Utils.EXIT),
+                Utils.collectStrings("Значение поля name начинается с заданной подстроки:")
         );
     }
 
     @Test
     void MenuPrintUniqueWeaponTypeTest() {
-        launchApplication(
-                collectStrings("unique_weapon", EXIT),
-                collectStrings("Уникальные значения поля weaponType:")
+        Utils.launchApplication(
+                Utils.collectStrings("unique_weapon", Utils.EXIT),
+                Utils.collectStrings("Уникальные значения поля weaponType:")
         );
     }
     // TODO: Расписать все тесты на все пункты меню.

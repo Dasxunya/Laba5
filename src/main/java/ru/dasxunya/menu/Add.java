@@ -17,7 +17,7 @@ public class Add {
     }
 
 
-    static HumanBeing getParameterHumanBeing(Scanner scanner) {
+    public static HumanBeing getParameterHumanBeing(Scanner scanner) {
         Integer id = getParameterId();
         String name = getParameterName(scanner);
         Coordinates coordinates = getParameterCoordinates(scanner);
@@ -34,7 +34,7 @@ public class Add {
         return humanBeing;
     }
 
-    private static Car getParameterCar(Scanner scanner) {
+    public static Car getParameterCar(Scanner scanner) {
         System.out.println("Характеристики машины: ");
         String nameCar = getParameterNameCar(scanner);
         boolean cool = getParameterCool(scanner);
@@ -42,11 +42,11 @@ public class Add {
         return car;
     }
 
-    private static boolean getParameterCool(Scanner scanner) {
+    public static boolean getParameterCool(Scanner scanner) {
         boolean cool;
         while (true) {
             System.out.println("Машина хорошая? ");
-            String text = scanner.next();
+            String text = scanner.nextLine();
 
             if (text.equals("true")) {
                 cool = true;
@@ -62,7 +62,7 @@ public class Add {
         return cool;
     }
 
-    private static String getParameterNameCar(Scanner scanner) {
+    public static String getParameterNameCar(Scanner scanner) {
         String nameCar;
         while (true) {
             System.out.println("Введите название автомобиля: ");
@@ -83,11 +83,11 @@ public class Add {
         return nameCar;
     }
 
-    private static Mood getParameterMood(Scanner scanner) {
+    public static Mood getParameterMood(Scanner scanner) {
         Mood mood;
 
         while (true) {
-            System.out.println("Введите тип оружия: ");
+            System.out.println("Введите настроение: ");
 
             try {
                 String text = scanner.nextLine();
@@ -100,7 +100,7 @@ public class Add {
         return mood;
     }
 
-    private static WeaponType getParameterWeaponType(Scanner scanner) {
+    public static WeaponType getParameterWeaponType(Scanner scanner) {
         System.out.println("Тип оружия: ");
         WeaponType weaponType;
 
@@ -118,7 +118,7 @@ public class Add {
         return weaponType;
     }
 
-    private static String getParameterSoundtrackName(Scanner scanner) {
+    public static String getParameterSoundtrackName(Scanner scanner) {
         System.out.println("Саундтрек: ");
         String soundtrackName;
         while (true) {
@@ -140,16 +140,16 @@ public class Add {
         return soundtrackName;
     }
 
-    private static Double getParameterImpactSpeed(Scanner scanner) {
+    public static Double getParameterImpactSpeed(Scanner scanner) {
         System.out.println("Скорость удара существа: ");
         Double impactSpeed;
         while (true) {
             System.out.println("Введите скорость удара: ");
 
             try {
-                impactSpeed = Double.parseDouble(scanner.next());
+                impactSpeed = Double.parseDouble(scanner.nextLine());
                 if (impactSpeed < 0) {
-                    throw new IllegalArgumentException("impactSpeed не может быть отрицательным!");         // не реагирует на ввод:/
+                    throw new IllegalArgumentException("impactSpeed не может быть отрицательным!");
                 }
                 if (impactSpeed > 10) {
                     throw new IllegalArgumentException("impactSpeed не может быть больше 10!");
@@ -164,13 +164,13 @@ public class Add {
         return impactSpeed;
     }
 
-    private static Boolean getParameterHasToothpick(Scanner scanner) {
+    public static Boolean getParameterHasToothpick(Scanner scanner) {
         System.out.println("Имеется ли у существа зубочистка: ");
         String command;
         Boolean hasToothpick;
         while (true) {
             System.out.println("Человеческое существо с зубочисткой? ");
-            command = scanner.next();
+            command = scanner.nextLine();
             if (command.equals("true")) {
                 hasToothpick = true;
                 break;
@@ -184,14 +184,14 @@ public class Add {
         return hasToothpick;
     }
 
-    private static Boolean getParameterRealHero(Scanner scanner) {
+    public static Boolean getParameterRealHero(Scanner scanner) {
         String command;
         System.out.println("Является ли человек реальным: ");
 
         Boolean realHero;
         while (true) {
             System.out.println("Человеческое существо реально? ");
-            command = scanner.next();
+            command = scanner.nextLine();
             if (command.equals("true")) {
                 realHero = true;
                 break;
@@ -205,7 +205,7 @@ public class Add {
         return realHero;
     }
 
-    private static Coordinates getParameterCoordinates(Scanner scanner) {
+    public static Coordinates getParameterCoordinates(Scanner scanner) {
         System.out.println("Создание координат: ");
 
         Long x = getParameterX(scanner);
@@ -215,14 +215,14 @@ public class Add {
         return coordinates;
     }
 
-    private static int getParameterY(Scanner scanner) {
+    public static int getParameterY(Scanner scanner) {
         int y;
 
         while (true) {
             System.out.println("Введите y: ");
 
             try {
-                y = Integer.parseInt(scanner.next());
+                y = Integer.parseInt(scanner.nextLine());
                 break;
             } catch (NumberFormatException exception) {
                 System.out.println("Некорректный аргумент для переменной y!");
@@ -231,13 +231,13 @@ public class Add {
         return y;
     }
 
-    private static Long getParameterX(Scanner scanner) {
+    public static Long getParameterX(Scanner scanner) {
         Long x = null;
         while (true) {
             System.out.println("Введите x: ");
 
             try {
-                x = Long.valueOf(scanner.next());
+                x = Long.valueOf(scanner.nextLine());
                 break;
             } catch (NumberFormatException exception) {
                 System.out.println("Некорректный аргумент для переменной х!");
@@ -246,7 +246,7 @@ public class Add {
         return x;
     }
 
-    private static String getParameterName(Scanner scanner) {
+    public static String getParameterName(Scanner scanner) {
         String name;
 
         while (true) {
@@ -269,7 +269,7 @@ public class Add {
     }
 
 
-    private static Integer getParameterId() {
+    public static Integer getParameterId() {
         // TODO: генерируем идентификатор.
         Integer id = 10;
 

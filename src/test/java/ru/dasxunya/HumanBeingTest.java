@@ -3,16 +3,9 @@ package ru.dasxunya;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.ZonedDateTime;
-import java.util.Date;
+import static ru.dasxunya.Utils.*;
 
 public class HumanBeingTest {
-
-    Coordinates coordinates = new Coordinates(100000L, 5);
-    ZonedDateTime creationDate = ZonedDateTime.now();
-    WeaponType weaponType = WeaponType.AXE;
-    Mood mood = Mood.CALM;
-    Car car = new Car("Мой автомобиль.", true);
 
     @Test
     void CreateHumanBeingWithParameters() {
@@ -30,5 +23,7 @@ public class HumanBeingTest {
         Assertions.assertThrows(NullPointerException.class, () -> new HumanBeing(1233, "Имя", coordinates, creationDate, false, false, 9D, null, weaponType, mood, car), "soundtrackName не может быть null!");
         Assertions.assertThrows(NullPointerException.class, () -> new HumanBeing(1233, "Имя", coordinates, creationDate, false, false, 9D, "Soundtrack", null, mood, car), "weaponType не может быть null!");
 
+//        App.humanBeings.add(humanBeing);
+//        launchApplication("show", "");
     }
 }

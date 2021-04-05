@@ -6,4 +6,9 @@ public enum WeaponType {
     RIFLE,
     KNIFE,
     BAT;
+
+    @Override
+    public String toString() {
+        return "WeaponType{}";
+    }
 }
