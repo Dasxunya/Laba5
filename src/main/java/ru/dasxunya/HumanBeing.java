@@ -2,7 +2,7 @@ package ru.dasxunya;
 
 import java.time.ZonedDateTime;
 
-public class HumanBeing {
+public class HumanBeing implements Comparable<HumanBeing> {
     @Override
     public String toString() {
         return "HumanBeing{" +
@@ -20,6 +20,10 @@ public class HumanBeing {
                 '}';
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным(?), Значение этого поля должно генерироваться автоматически(?)
     private String name; //Поле не может быть null, Строка не может быть пустой+
     private Coordinates coordinates; //Поле не может быть null+
@@ -31,6 +35,50 @@ public class HumanBeing {
     private WeaponType weaponType; //Поле не может быть null+
     private Mood mood; //Поле может быть null+
     private Car car; //Поле может быть null+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public ZonedDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public Boolean getRealHero() {
+        return realHero;
+    }
+
+    public boolean isHasToothpick() {
+        return hasToothpick;
+    }
+
+    public Double getImpactSpeed() {
+        return impactSpeed;
+    }
+
+    public String getSoundtrackName() {
+        return soundtrackName;
+    }
+
+    public WeaponType getWeaponType() {
+        return weaponType;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public Car getCar() {
+        return car;
+    }
 
     public HumanBeing(Integer id, String name, Coordinates coordinates, ZonedDateTime creationDate, boolean realHero, boolean hasToothpick, Double impactSpeed, String soundtrackName, WeaponType weaponType, Mood mood, Car car) {
         // TODO: Сделать проверку на уникальный идентификатор
@@ -76,5 +124,10 @@ public class HumanBeing {
         this.weaponType = weaponType;
         this.mood = mood;
         this.car = car;
+    }
+
+    @Override
+    public int compareTo(HumanBeing other) {
+        return this.id - other.id;
     }
 }

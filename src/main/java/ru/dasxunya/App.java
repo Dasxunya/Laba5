@@ -103,9 +103,8 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String command;
 
-
         while (scanner.hasNext()) {
-            command = scanner.next();
+            command = scanner.nextLine();
 
             switch (command) {
                 case "help" -> {
@@ -142,7 +141,6 @@ public class App {
                 }
                 case "add" -> {
                     Add.add(scanner);
-
                 }
                 case "update_id" -> {
                     System.out.println("Обновление элемента коллекции:");

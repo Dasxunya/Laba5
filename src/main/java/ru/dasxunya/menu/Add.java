@@ -9,8 +9,8 @@ public class Add {
 
 
     public static void add(Scanner scanner) {
-        String command;
-        System.out.println("Добавление элемента в коллекцию:");
+
+        System.out.println("Добавление элемента в коллекцию: ");
 
         HumanBeing humanBeing = getParameterHumanBeing(scanner);
         App.humanBeings.add(humanBeing);
@@ -45,7 +45,7 @@ public class Add {
     public static boolean getParameterCool(Scanner scanner) {
         boolean cool;
         while (true) {
-            System.out.println("Машина хорошая? ");
+            System.out.println("Машина хорошая?");
             String text = scanner.nextLine();
 
             if (text.equals("true")) {
@@ -57,7 +57,7 @@ public class Add {
                 break;
             }
 
-            System.out.println("Некорректный аргумент для hasToothpick (Необходимо: true или false)! ");
+            System.out.println("Некорректный аргумент для Cool (Необходимо: true или false)!");
         }
         return cool;
     }
