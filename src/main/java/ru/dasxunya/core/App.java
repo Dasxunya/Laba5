@@ -1,11 +1,9 @@
-package ru.dasxunya;
+package ru.dasxunya.core;
 
-import ru.dasxunya.menu.Add;
-import ru.dasxunya.menu.Show;
-import ru.dasxunya.menu.Update;
+import ru.dasxunya.menu.*;
 
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.lang.Character.*;
+import java.util.*;
 
 /*
 Реализовать консольное приложение, которое реализует управление коллекцией объектов в интерактивном режиме. В коллекции необходимо хранить объекты класса HumanBeing, описание которого приведено ниже.
@@ -97,92 +95,43 @@ public enum Mood {
  */
 public class App {
 
-    public static TreeSet<HumanBeing> humanBeings = new TreeSet<>();
+	public static TreeSet<HumanBeing> humanBeings = new TreeSet<>();
+    public static LinkedList<String> history = new LinkedList<>();
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String command;
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Load.run(scanner);
+		Menu(scanner);
+	}
 
-        while (scanner.hasNext()) {
-            command = scanner.nextLine();
+	public static void Menu(Scanner scanner) {
+		String command;
 
-            switch (command) {
-                case "help" -> {
-                    System.out.println(
-                            """
-                                    Меню:                             
-                                    help : вывести справку по доступным командам
-                                    info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
-                                    show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
-                                    add {element} : добавить новый элемент в коллекцию
-                                    update id {element} : обновить значение элемента коллекции, id которого равен заданному
-                                    remove_by_id id : удалить элемент из коллекции по его id
-                                    clear : очистить коллекцию
-                                    save : сохранить коллекцию в файл
-                                    execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
-                                    exit : завершить программу (без сохранения в файл)
-                                    add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
-                                    add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
-                                    history : вывести последние 11 команд (без их аргументов)
-                                    max_by_soundtrack_name : вывести любой объект из коллекции, значение поля soundtrackName которого является максимальным
-                                    filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
-                                    print_unique_weapon_type : вывести уникальные значения поля weaponType всех элементов в коллекции
-                                    """
+		while (scanner.hasNext()) {
+			command = scanner.nextLine();
 
-
-                    );
-                }
-                case "info" -> {
-                    System.out.println("Информация о коллекции:");
-                }
-                case "show" -> {
-                    System.out.println("Элементы коллекции:");
-                    Show.show(scanner);
-                }
-                case "add" -> {
-                    Add.add(scanner);
-                }
-                case "update_id" -> {
-                    System.out.println("Обновление элемента коллекции:");
-                    Update.update(scanner);
-                }
-                case "remove_by_id" -> {
-                    System.out.println("Удален элемент коллекции:");
-                }
-                case "clear" -> {
-                    System.out.println("Коллекция очищена");
-                }
-                case "save" -> {
-                    System.out.println("Коллекция сохранена в файл");
-                }
-                case "exit" -> {
-                    return;
-                }
-                case "execute_script" -> {
-                    System.out.println("Считывание и исполнение скрипта");
-                }
-                case "add_if_max" -> {
-                    System.out.println("Если элемент больше максимального, добавление в коллекцию");
-                }
-                case "add_if_min" -> {
-                    System.out.println("Если элемент меньше минимального, добавление в коллекцию");
-                }
-                case "history" -> {
-                    System.out.println("Последние 11 команд:");
-                }
-                case "max_soundtrack" -> {
-                    System.out.println("SoundtrackName является максимальным:");
-                }
-                case "filter_name" -> {
-                    System.out.println("Значение поля name начинается с заданной подстроки:");
-                }
-                case "unique_weapon" -> {
-                    System.out.println("Уникальные значения поля weaponType:");
-                }
-            }
-
-
-        }
-    }
+			switch (command) {
+				case "help" -> Help.run(scanner);
+				case "info" -> Info.run(scanner);
+				case "show" -> Show.run(scanner);
+				case "add" -> Add.run(scanner);
+				case "update_id" -> Update.run(scanner);
+				case "remove_by_id" -> RemoveById.run(scanner);
+				case "clear" -> Clear.run(scanner);
+				case "save" -> Save.run(scanner);
+				case "execute_script" -> ExecuteScript.run(scanner);
+				case "add_if_max" -> AddIfMax.run(scanner);
+				case "add_if_min" -> AddIfMin.run(scanner);
+				case "history" -> History.run(scanner);
+				case "max_soundtrack" -> MaxSoundtrack.run(scanner);
+				case "filter_name" -> FilterName.run(scanner);
+				case "unique_weapon" -> UniqueWeapon.run(scanner);
+				case "exit" -> {
+					Exit.run(scanner);
+					return;
+				}
+			}
+		}
+	}
 
 }

@@ -8,17 +8,17 @@ import java.util.*;
 import java.util.function.*;
 
 import static ru.dasxunya.UtilsTest.*;
+import static ru.dasxunya.utils.Utils.*;
 
-public class ClearTest {
+public class LoadTest {
 	@Test
-	void ClearTest() {
-		String input = Utils.collectStrings();
-		String expected = Utils.collectStrings("Коллекция очищена!");
+	void Loading() {
+		String input = "";
+		String expected = "";
 
 		Consumer<Scanner> method = scanner -> {
-			AddExampleHumanToCollection();
-			Clear.run(scanner);
-			Assertions.assertEquals(0, App.humanBeings.size());
+			Load.run(scanner);
+			Assertions.assertEquals(3, App.humanBeings.size());
 		};
 
 		runTest(input, expected, method);
