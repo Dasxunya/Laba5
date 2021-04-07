@@ -8,10 +8,18 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Add.
+ */
 public class Add {
 
 
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("add");
 		System.out.println("Добавление элемента в коллекцию: ");
 
@@ -20,7 +28,14 @@ public class Add {
 	}
 
 
-	public static HumanBeing getParameterHumanBeing(Scanner scanner, Integer ID) {
+    /**
+     * Gets parameter human being.
+     *
+     * @param scanner the scanner
+     * @param ID      the id
+     * @return the parameter human being
+     */
+    public static HumanBeing getParameterHumanBeing(Scanner scanner, Integer ID) {
 		Integer id = ID;
 		String name = getParameterName(scanner);
 		Coordinates coordinates = getParameterCoordinates(scanner);
@@ -36,7 +51,13 @@ public class Add {
 		return new HumanBeing(id, name, coordinates, creationDate, realHero, hasToothpick, impactSpeed, soundtrackName, weaponType, mood, car);
 	}
 
-	public static Car getParameterCar(Scanner scanner) {
+    /**
+     * Gets parameter car.
+     *
+     * @param scanner the scanner
+     * @return the parameter car
+     */
+    public static Car getParameterCar(Scanner scanner) {
 		System.out.println("Характеристики машины: ");
 		String nameCar = getParameterNameCar(scanner);
 		boolean cool = getParameterCool(scanner);
@@ -44,7 +65,13 @@ public class Add {
 		return car;
 	}
 
-	public static boolean getParameterCool(Scanner scanner) {
+    /**
+     * Gets parameter cool.
+     *
+     * @param scanner the scanner
+     * @return the parameter cool
+     */
+    public static boolean getParameterCool(Scanner scanner) {
 		boolean cool;
 		while (true) {
 			System.out.println("Машина хорошая?");
@@ -64,7 +91,13 @@ public class Add {
 		return cool;
 	}
 
-	public static String getParameterNameCar(Scanner scanner) {
+    /**
+     * Gets parameter name car.
+     *
+     * @param scanner the scanner
+     * @return the parameter name car
+     */
+    public static String getParameterNameCar(Scanner scanner) {
 		String nameCar = null;
 		while (true) {
 			System.out.println("Введите название автомобиля: ");
@@ -83,7 +116,13 @@ public class Add {
 		return nameCar;
 	}
 
-	public static Mood getParameterMood(Scanner scanner) {
+    /**
+     * Gets parameter mood.
+     *
+     * @param scanner the scanner
+     * @return the parameter mood
+     */
+    public static Mood getParameterMood(Scanner scanner) {
 		Mood mood = null;
 
 		while (true) {
@@ -104,7 +143,13 @@ public class Add {
 		return mood;
 	}
 
-	public static WeaponType getParameterWeaponType(Scanner scanner) {
+    /**
+     * Gets parameter weapon type.
+     *
+     * @param scanner the scanner
+     * @return the parameter weapon type
+     */
+    public static WeaponType getParameterWeaponType(Scanner scanner) {
 		System.out.println("Тип оружия: ");
 		WeaponType weaponType = null;
 
@@ -125,7 +170,13 @@ public class Add {
 		return weaponType;
 	}
 
-	public static String getParameterSoundtrackName(Scanner scanner) {
+    /**
+     * Gets parameter soundtrack name.
+     *
+     * @param scanner the scanner
+     * @return the parameter soundtrack name
+     */
+    public static String getParameterSoundtrackName(Scanner scanner) {
 		System.out.println("Саундтрек: ");
 		String soundtrackName;
 		while (true) {
@@ -147,7 +198,13 @@ public class Add {
 		return soundtrackName;
 	}
 
-	public static Double getParameterImpactSpeed(Scanner scanner) {
+    /**
+     * Gets parameter impact speed.
+     *
+     * @param scanner the scanner
+     * @return the parameter impact speed
+     */
+    public static Double getParameterImpactSpeed(Scanner scanner) {
 		System.out.println("Скорость удара существа: ");
 		Double impactSpeed = null;
 		while (true) {
@@ -178,7 +235,13 @@ public class Add {
 		return impactSpeed;
 	}
 
-	public static Boolean getParameterHasToothpick(Scanner scanner) {
+    /**
+     * Gets parameter has toothpick.
+     *
+     * @param scanner the scanner
+     * @return the parameter has toothpick
+     */
+    public static Boolean getParameterHasToothpick(Scanner scanner) {
 		System.out.println("Имеется ли у существа зубочистка: ");
 		String command;
 		Boolean hasToothpick;
@@ -198,7 +261,13 @@ public class Add {
 		return hasToothpick;
 	}
 
-	public static Boolean getParameterRealHero(Scanner scanner) {
+    /**
+     * Gets parameter real hero.
+     *
+     * @param scanner the scanner
+     * @return the parameter real hero
+     */
+    public static Boolean getParameterRealHero(Scanner scanner) {
 		String command;
 		System.out.println("Является ли человек реальным: ");
 
@@ -219,7 +288,13 @@ public class Add {
 		return realHero;
 	}
 
-	public static Coordinates getParameterCoordinates(Scanner scanner) {
+    /**
+     * Gets parameter coordinates.
+     *
+     * @param scanner the scanner
+     * @return the parameter coordinates
+     */
+    public static Coordinates getParameterCoordinates(Scanner scanner) {
 		System.out.println("Создание координат: ");
 
 		Long x = getParameterX(scanner);
@@ -229,7 +304,13 @@ public class Add {
 		return coordinates;
 	}
 
-	public static int getParameterY(Scanner scanner) {
+    /**
+     * Gets parameter y.
+     *
+     * @param scanner the scanner
+     * @return the parameter y
+     */
+    public static int getParameterY(Scanner scanner) {
 		int y;
 
 		while (true) {
@@ -250,7 +331,13 @@ public class Add {
 		return y;
 	}
 
-	public static Long getParameterX(Scanner scanner) {
+    /**
+     * Gets parameter x.
+     *
+     * @param scanner the scanner
+     * @return the parameter x
+     */
+    public static Long getParameterX(Scanner scanner) {
 		Long x = null;
 		while (true) {
 			System.out.println("Введите x: ");
@@ -270,7 +357,13 @@ public class Add {
 		return x;
 	}
 
-	public static String getParameterName(Scanner scanner) {
+    /**
+     * Gets parameter name.
+     *
+     * @param scanner the scanner
+     * @return the parameter name
+     */
+    public static String getParameterName(Scanner scanner) {
 		String name;
 
 		while (true) {
@@ -290,7 +383,12 @@ public class Add {
 	}
 
 
-	public static Integer  getParameterId() {
+    /**
+     * Gets parameter id.
+     *
+     * @return the parameter id
+     */
+    public static Integer  getParameterId() {
 		HumanBeing humanBeingWithMaxID = App.humanBeings.stream().max(Comparator.comparing(human -> human.getId())).orElse(null);
 
 		Integer id;

@@ -6,8 +6,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Info.
+ */
 public class Info {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("info");
 
 		System.out.println("Информация о коллекции HumanBeings: ");

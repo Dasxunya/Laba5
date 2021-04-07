@@ -4,8 +4,16 @@ import ru.dasxunya.core.*;
 
 import static ru.dasxunya.core.App.*;
 
+/**
+ * The type Historian.
+ */
 public class Historian {
-	public static void AddHistory(String text) {
+    /**
+     * Add history.
+     *
+     * @param text the text
+     */
+    public static void AddHistory(String text) {
 		if (history.size() == 11)
 		{
 			history.removeFirst();

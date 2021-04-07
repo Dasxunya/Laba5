@@ -6,8 +6,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Add if max.
+ */
 public class AddIfMax {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("add_if_max");
 
 		System.out.println("Если элемент больше максимального, добавление в коллекцию: ");

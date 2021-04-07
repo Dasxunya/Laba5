@@ -5,6 +5,9 @@ import ru.dasxunya.menu.*;
 import java.lang.Character.*;
 import java.util.*;
 
+/**
+ * The type App.
+ */
 /*
 Реализовать консольное приложение, которое реализует управление коллекцией объектов в интерактивном режиме. В коллекции необходимо хранить объекты класса HumanBeing, описание которого приведено ниже.
 
@@ -95,19 +98,36 @@ public enum Mood {
  */
 public class App {
 
+	/**
+	 * The constant humanBeings.
+	 */
 	public static TreeSet<HumanBeing> humanBeings = new TreeSet<>();
-    public static LinkedList<String> history = new LinkedList<>();
+	/**
+	 * The constant history.
+	 */
+	public static LinkedList<String> history = new LinkedList<>();
 
+	/**
+	 * The entry point of application.
+	 *
+	 * @param args the input arguments
+	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Load.run(scanner);
 		Menu(scanner);
 	}
 
+	/**
+	 * Menu.
+	 *
+	 * @param scanner the scanner
+	 */
 	public static void Menu(Scanner scanner) {
 		String command;
 
 		while (scanner.hasNext()) {
+			System.out.println("Введите команду: ");
 			command = scanner.nextLine();
 
 			switch (command) {

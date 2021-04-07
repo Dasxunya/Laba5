@@ -10,8 +10,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Utils.*;
 
+/**
+ * The type Load.
+ */
 public class Load {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		String filename = "humans.json";
 
 		// https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
@@ -32,8 +40,9 @@ public class Load {
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			System.out.println("Проблемы с файлом humans.json!");
 		}
+
 
 	}
 }

@@ -9,13 +9,20 @@ import java.util.*;
 import static ru.dasxunya.utils.Historian.*;
 import static ru.dasxunya.utils.Utils.*;
 
+/**
+ * The type Execute script.
+ */
 public class ExecuteScript {
-	public static void run(Scanner scanner)  {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner)  {
 		AddHistory("execute_script");
 
 		System.out.println("Считывание и исполнение скрипта: ");
 
-		// TODO: На локальном компьютере надо добавить переменную окружения!
 		// https://www.java.com/ru/download/help/path.html
 
 		String filename = System.getenv(SYSTEM_VARIABLE);

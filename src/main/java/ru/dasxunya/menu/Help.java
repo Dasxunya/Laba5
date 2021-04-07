@@ -4,8 +4,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Help.
+ */
 public class Help {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("help");
 
 		System.out.println(

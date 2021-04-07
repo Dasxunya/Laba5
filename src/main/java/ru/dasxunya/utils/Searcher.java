@@ -4,8 +4,17 @@ import ru.dasxunya.core.*;
 
 import java.util.*;
 
+/**
+ * The type Searcher.
+ */
 public class Searcher {
-	public static Integer searchByID(Scanner scanner) {
+    /**
+     * Search by id integer.
+     *
+     * @param scanner the scanner
+     * @return the integer
+     */
+    public static Integer searchByID(Scanner scanner) {
 		if (App.humanBeings.size() == 0) {
 			System.out.println("В коллекции нет объектов! Поиск по идентификатору невозможен!");
 			return null;

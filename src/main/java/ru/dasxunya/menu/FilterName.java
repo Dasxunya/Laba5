@@ -9,8 +9,16 @@ import java.util.stream.*;
 import static ru.dasxunya.menu.Add.*;
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Filter name.
+ */
 public class FilterName {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("filter_name");
 
 		System.out.println("Значение поля name начинается с заданной подстроки: ");

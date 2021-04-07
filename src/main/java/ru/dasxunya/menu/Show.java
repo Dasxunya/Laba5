@@ -6,8 +6,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Show.
+ */
 public class Show {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("show");
 
 		System.out.println("Элементы коллекции: ");

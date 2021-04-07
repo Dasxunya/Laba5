@@ -7,8 +7,16 @@ import java.util.stream.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Unique weapon.
+ */
 public class UniqueWeapon {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("unique_weapon");
 
 		System.out.println("Уникальные значения поля weaponType: ");

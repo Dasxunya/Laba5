@@ -6,8 +6,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Add if min.
+ */
 public class AddIfMin {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("add_if_min");
 
 		System.out.println("Если элемент меньше минимального, добавление в коллекцию: ");

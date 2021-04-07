@@ -6,8 +6,16 @@ import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
+/**
+ * The type Max soundtrack.
+ */
 public class MaxSoundtrack {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("max_soundtrack");
 
 		System.out.println("SoundtrackName является максимальным: ");

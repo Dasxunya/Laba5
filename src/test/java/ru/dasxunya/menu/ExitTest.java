@@ -10,7 +10,9 @@ public class ExitTest {
 	@Test
 	void MenuExitTest() {
 		String input = Utils.collectStrings(EXIT);
-		String expected = Utils.collectStrings("Завершение работы программы...");
+		String expected = Utils.collectStrings(
+				"Введите команду: ",
+				"Завершение работы программы...");
 
 		runTest(input, expected, main);
 

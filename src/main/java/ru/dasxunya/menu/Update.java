@@ -7,8 +7,16 @@ import java.util.*;
 import static ru.dasxunya.utils.Historian.*;
 import static ru.dasxunya.utils.Searcher.*;
 
+/**
+ * The type Update.
+ */
 public class Update {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("update_id");
 
 		Integer id = searchByID(scanner);

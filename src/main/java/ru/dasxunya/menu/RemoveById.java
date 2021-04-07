@@ -7,8 +7,16 @@ import java.util.*;
 import static ru.dasxunya.utils.Historian.*;
 import static ru.dasxunya.utils.Searcher.*;
 
+/**
+ * The type Remove by id.
+ */
 public class RemoveById {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("remove_by_id");
 
 		System.out.println("Удаление элемента коллекции: ");

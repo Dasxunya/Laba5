@@ -10,7 +10,9 @@ public class HelpTest {
 	@Test
 	void MenuHelpTest() {
 		String input = Utils.collectStrings("help", EXIT);
-		String expected = Utils.collectStrings("""
+		String expected = Utils.collectStrings(
+				"Введите команду: ",
+        """
 								Меню:                             
 								help : вывести справку по доступным командам
 								info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
@@ -29,6 +31,7 @@ public class HelpTest {
 								filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
 								print_unique_weapon_type : вывести уникальные значения поля weaponType всех элементов в коллекции
 								""",
+				"Введите команду: ",
 		                                       "Завершение работы программы...");
 
 		runTest(input, expected, main);

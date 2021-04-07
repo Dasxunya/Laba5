@@ -14,8 +14,16 @@ import java.util.*;
 import static ru.dasxunya.utils.Historian.*;
 import static ru.dasxunya.utils.Utils.*;
 
+/**
+ * The type Save.
+ */
 public class Save {
-	public static void run(Scanner scanner) {
+    /**
+     * Run.
+     *
+     * @param scanner the scanner
+     */
+    public static void run(Scanner scanner) {
 		AddHistory("save");
 
 		// https://www.baeldung.com/jackson-object-mapper-tutorial

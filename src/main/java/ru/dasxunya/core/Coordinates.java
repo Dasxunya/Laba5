@@ -1,15 +1,27 @@
 package ru.dasxunya.core;
 
+/**
+ * The type Coordinates.
+ */
 public class Coordinates {
 	private  Long x;
 	private  int y;
 
-	public Coordinates(Long x, int y) {
+    /**
+     * Instantiates a new Coordinates.
+     *
+     * @param x the x
+     * @param y the y
+     */
+    public Coordinates(Long x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public Coordinates() {
+    /**
+     * Instantiates a new Coordinates.
+     */
+    public Coordinates() {
 	}
 
 	@Override
