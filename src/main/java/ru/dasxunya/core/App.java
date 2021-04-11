@@ -1,8 +1,6 @@
 package ru.dasxunya.core;
 
 import ru.dasxunya.menu.*;
-
-import java.lang.Character.*;
 import java.util.*;
 
 /**
@@ -107,6 +105,7 @@ public class App {
 	 */
 	public static LinkedList<String> history = new LinkedList<>();
 
+	public static boolean IS_EXECUTE_SCRIPT_STATE = false;
 	/**
 	 * The entry point of application.
 	 *
@@ -126,30 +125,59 @@ public class App {
 	public static void Menu(Scanner scanner) {
 		String command;
 
-		while (scanner.hasNext()) {
+		while (true) {
 			System.out.println("Введите команду: ");
 			command = scanner.nextLine();
 
 			switch (command) {
-				case "help" -> Help.run(scanner);
-				case "info" -> Info.run(scanner);
-				case "show" -> Show.run(scanner);
-				case "add" -> Add.run(scanner);
-				case "update_id" -> Update.run(scanner);
-				case "remove_by_id" -> RemoveById.run(scanner);
-				case "clear" -> Clear.run(scanner);
-				case "save" -> Save.run(scanner);
-				case "execute_script" -> ExecuteScript.run(scanner);
-				case "add_if_max" -> AddIfMax.run(scanner);
-				case "add_if_min" -> AddIfMin.run(scanner);
-				case "history" -> History.run(scanner);
-				case "max_soundtrack" -> MaxSoundtrack.run(scanner);
-				case "filter_name" -> FilterName.run(scanner);
-				case "unique_weapon" -> UniqueWeapon.run(scanner);
-				case "exit" -> {
+				case "help":
+					Help.run(scanner);
+					break;
+				case "info":
+					Info.run(scanner);
+					break;
+				case "show":
+					Show.run(scanner);
+					break;
+				case "add":
+					Add.run(scanner);
+					break;
+				case "update_id":
+					Update.run(scanner);
+					break;
+				case "remove_by_id":
+					RemoveById.run(scanner);
+					break;
+				case "clear":
+					Clear.run(scanner);
+					break;
+				case "save":
+					Save.run(scanner);
+					break;
+				case "execute_script":
+					ExecuteScript.run(scanner);
+					break;
+				case "add_if_max":
+					AddIfMax.run(scanner);
+					break;
+				case "add_if_min":
+					AddIfMin.run(scanner);
+					break;
+				case "history":
+					History.run(scanner);
+					break;
+				case "max_soundtrack":
+					MaxSoundtrack.run(scanner);
+					break;
+				case "filter_name":
+					FilterName.run(scanner);
+					break;
+				case "unique_weapon":
+					UniqueWeapon.run(scanner);
+					break;
+				case "exit":
 					Exit.run(scanner);
 					return;
-				}
 			}
 		}
 	}

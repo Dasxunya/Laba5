@@ -27,19 +27,29 @@ public class ExecuteScript {
 
 		String filename = System.getenv(SYSTEM_VARIABLE);
 
-		FileReader fileReader = null;
-		try {
-			fileReader = new FileReader(filename);
-			Scanner newScanner = new Scanner(fileReader);
-			App.Menu(newScanner);
-			fileReader.close();
-		}
-		catch (FileNotFoundException | NullPointerException exception)
+		if (App.IS_EXECUTE_SCRIPT_STATE)
 		{
-			System.out.println("Файл не найден!");
-		} catch (IOException exception) {
-			System.out.println("Проблема с доступом к файлу!");
+			System.out.println("Нельзя выполнять скрипт внутри другого вызова скрипта!");
 		}
+		else {
+			FileReader fileReader = null;
+			try {
+				fileReader = new FileReader(filename);
+				Scanner newScanner = new Scanner(fileReader);
+
+				App.IS_EXECUTE_SCRIPT_STATE = true;
+				App.Menu(newScanner);
+				fileReader.close();
+				App.IS_EXECUTE_SCRIPT_STATE = false;
+			}
+			catch (FileNotFoundException | NullPointerException exception)
+			{
+				System.out.println("Файл не найден!");
+			} catch (IOException exception) {
+				System.out.println("Проблема с доступом к файлу!");
+			}
+		}
+
 
 
 	}
