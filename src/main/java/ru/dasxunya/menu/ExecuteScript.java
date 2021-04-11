@@ -48,7 +48,7 @@ public class ExecuteScript {
                     fileReader.close();
                     App.IS_EXECUTE_SCRIPT_STATE = false;
                 } catch (FileNotFoundException | NullPointerException exception) {
-                    System.out.println("Файл не найден!");
+                    System.out.println("Файл не найден (проверьте права доступа или создайте файл)!");
                 } catch (IOException exception) {
                     System.out.println("Проблема с доступом к файлу!");
                 }
