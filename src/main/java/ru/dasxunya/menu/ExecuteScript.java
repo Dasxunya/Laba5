@@ -22,7 +22,6 @@ public class ExecuteScript {
      */
     public static void run(String filename) {
         AddHistory("execute_script");
-
         System.out.println("Считывание и исполнение скрипта: ");
 
         // https://www.java.com/ru/download/help/path.html
@@ -31,7 +30,7 @@ public class ExecuteScript {
             System.out.println("Нельзя передать специальный файл в качестве скрипта!");
         }
         else {
-            if (App.IS_EXECUTE_SCRIPT_STATE) {
+            if (App.execute_script_completed) {
                 System.out.println("Нельзя выполнять скрипт внутри другого вызова скрипта!");
             } else {
                 FileReader fileReader = null;
@@ -40,10 +39,10 @@ public class ExecuteScript {
 
                     Scanner newScanner = new Scanner(fileReader);
 
-                    App.IS_EXECUTE_SCRIPT_STATE = true;
+                    App.execute_script_completed = true;
                     App.Menu(newScanner);
                     fileReader.close();
-                    App.IS_EXECUTE_SCRIPT_STATE = false;
+                    App.execute_script_completed = false;
                 } catch (FileNotFoundException | NullPointerException exception) {
                     System.out.println("Файл не найден (проверьте права доступа или создайте файл)!");
                 } catch (IOException exception) {

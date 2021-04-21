@@ -105,7 +105,7 @@ public class App {
 	 */
 	public static LinkedList<String> history = new LinkedList<>();
 
-	public static boolean IS_EXECUTE_SCRIPT_STATE = false;
+	public static boolean execute_script_completed = false;
 	/**
 	 * The entry point of application.
 	 *
