@@ -39,7 +39,8 @@ public class Save {
 			// https://attacomsian.com/blog/jackson-read-write-json
 			ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
 			String output = writer.writeValueAsString(App.humanBeings);
-			try(FileOutputStream fos=new FileOutputStream("humans.json");
+			String filename = System.getenv(SYSTEM_VARIABLE);
+			try(FileOutputStream fos=new FileOutputStream(filename);
 			    PrintStream printStream = new PrintStream(fos))
 			{
 				printStream.println(output);

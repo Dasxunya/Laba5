@@ -60,6 +60,12 @@ public class Add {
     public static Car getParameterCar(Scanner scanner) {
 		System.out.println("Характеристики машины: ");
 		String nameCar = getParameterNameCar(scanner);
+
+		if (nameCar == null)
+		{
+			return null;
+		}
+
 		boolean cool = getParameterCool(scanner);
 		Car car = new Car(nameCar, cool);
 		return car;

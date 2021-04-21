@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import static ru.dasxunya.utils.Historian.*;
-import static ru.dasxunya.utils.Utils.*;
 
 /**
  * The type Execute script.
@@ -19,16 +18,14 @@ public class ExecuteScript {
     /**
      * Run.
      *
-     * @param scanner the scanner
+     * @param filename the scanner
      */
-    public static void run(Scanner scanner) {
+    public static void run(String filename) {
         AddHistory("execute_script");
 
         System.out.println("Считывание и исполнение скрипта: ");
 
         // https://www.java.com/ru/download/help/path.html
-
-        String filename = System.getenv(SYSTEM_VARIABLE);
 
         if (Files.exists(Paths.get(filename)) && !Files.isRegularFile(Paths.get(filename))) {
             System.out.println("Нельзя передать специальный файл в качестве скрипта!");

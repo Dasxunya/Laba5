@@ -154,9 +154,6 @@ public class App {
 				case "save":
 					Save.run(scanner);
 					break;
-				case "execute_script":
-					ExecuteScript.run(scanner);
-					break;
 				case "add_if_max":
 					AddIfMax.run(scanner);
 					break;
@@ -178,6 +175,15 @@ public class App {
 				case "exit":
 					Exit.run(scanner);
 					return;
+				default:
+					String commandExecuteScript = "execute_script ";
+					if (command.indexOf(commandExecuteScript) == 0)
+					{
+						String path = command.substring(commandExecuteScript.length()).trim();
+						ExecuteScript.run(path);
+					}
+
+					break;
 			}
 		}
 	}

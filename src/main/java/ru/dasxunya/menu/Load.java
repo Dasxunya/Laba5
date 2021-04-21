@@ -20,7 +20,8 @@ public class Load {
      * @param scanner the scanner
      */
     public static void run(Scanner scanner) {
-		String filename = "humans.json";
+		String filename = System.getenv(SYSTEM_VARIABLE);
+
 
 		// https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
 		StringBuilder jsonStringBuilder = new StringBuilder();
