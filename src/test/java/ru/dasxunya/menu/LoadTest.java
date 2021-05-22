@@ -2,13 +2,11 @@ package ru.dasxunya.menu;
 
 import org.junit.jupiter.api.*;
 import ru.dasxunya.core.*;
-import ru.dasxunya.utils.*;
 
 import java.util.*;
 import java.util.function.*;
 
 import static ru.dasxunya.UtilsTest.*;
-import static ru.dasxunya.utils.Utils.*;
 
 public class LoadTest {
 	@Test
@@ -17,7 +15,7 @@ public class LoadTest {
 		String expected = "";
 
 		Consumer<Scanner> method = scanner -> {
-			Load.run(scanner);
+			Load.run();
 			Assertions.assertEquals(3, App.humanBeings.size());
 		};
 

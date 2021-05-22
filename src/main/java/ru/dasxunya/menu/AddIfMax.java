@@ -22,7 +22,7 @@ public class AddIfMax {
 
 		HumanBeing humanBeing = Add.getParameterHumanBeing(scanner, Add.getParameterId());
 
-		HumanBeing humanBeingWithMaxImpactSpeed = App.humanBeings.stream().max(Comparator.comparing(human -> human.getImpactSpeed())).orElse(null);
+		HumanBeing humanBeingWithMaxImpactSpeed = App.humanBeings.stream().max(Comparator.comparing(HumanBeing::getImpactSpeed)).orElse(null);
 
 		if (App.humanBeings.isEmpty() || humanBeingWithMaxImpactSpeed.getImpactSpeed() < humanBeing.getImpactSpeed())
 		{

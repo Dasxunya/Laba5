@@ -24,7 +24,7 @@ public class RemoveById {
 		Integer id = searchByID(scanner);
 		if (id == null) return;
 
-		App.humanBeings.removeIf((human -> human.getId() == id));
+		App.humanBeings.removeIf((human -> human.getId().equals(id)));
 		System.out.println("Объект удален из коллекции!");
 	}
 }

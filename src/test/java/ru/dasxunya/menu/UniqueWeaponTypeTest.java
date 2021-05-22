@@ -15,7 +15,7 @@ public class UniqueWeaponTypeTest {
 		String expected = Utils.collectStrings("Уникальные значения поля weaponType: ",
 		                                       "Значения поля weaponType отсутствуют!");
 		Consumer<Scanner> method = scanner -> {
-			UniqueWeapon.run(scanner);
+			UniqueWeapon.run();
 		};
 
 		runTest(input, expected, method);
@@ -30,7 +30,7 @@ public class UniqueWeaponTypeTest {
 		                                       "PISTOL");
 		Consumer<Scanner> method = scanner -> {
 			Add3ExampleHumansToCollection();
-			UniqueWeapon.run(scanner);
+			UniqueWeapon.run();
 		};
 
 		runTest(input, expected, method);

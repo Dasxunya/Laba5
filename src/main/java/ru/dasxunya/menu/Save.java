@@ -1,18 +1,18 @@
 package ru.dasxunya.menu;
 
-import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.*;
-import com.fasterxml.jackson.core.*;
-import com.fasterxml.jackson.core.util.*;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.datatype.jsr310.*;
-import ru.dasxunya.core.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import ru.dasxunya.core.App;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 
-import static ru.dasxunya.utils.Historian.*;
-import static ru.dasxunya.utils.Utils.*;
+import static ru.dasxunya.utils.Historian.AddHistory;
+import static ru.dasxunya.utils.Utils.SYSTEM_VARIABLE;
+import static ru.dasxunya.utils.Utils.getObjectMapper;
 
 /**
  * The type Save.
@@ -21,9 +21,8 @@ public class Save {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		AddHistory("save");
 
 		// https://www.baeldung.com/jackson-object-mapper-tutorial

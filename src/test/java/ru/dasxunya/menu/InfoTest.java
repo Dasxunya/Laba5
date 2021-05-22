@@ -17,7 +17,7 @@ public class InfoTest {
 		                                      );
 
 		Consumer<Scanner> method = scanner -> {
-			Info.run(scanner);
+			Info.run();
 		};
 
 		runTest(input, expected, method);
@@ -34,7 +34,7 @@ public class InfoTest {
 
 		Consumer<Scanner> method = scanner -> {
 			Add3ExampleHumansToCollection();
-			Info.run(scanner);
+			Info.run();
 		};
 
 		runTest(input, expected, method);

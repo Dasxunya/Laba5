@@ -17,7 +17,7 @@ public class ClearTest {
 
 		Consumer<Scanner> method = scanner -> {
 			AddExampleHumanToCollection();
-			Clear.run(scanner);
+			Clear.run();
 			Assertions.assertEquals(0, App.humanBeings.size());
 		};
 

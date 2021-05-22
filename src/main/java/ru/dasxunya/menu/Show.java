@@ -2,8 +2,6 @@ package ru.dasxunya.menu;
 
 import ru.dasxunya.core.*;
 
-import java.util.*;
-
 import static ru.dasxunya.utils.Historian.*;
 
 /**
@@ -13,9 +11,8 @@ public class Show {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		AddHistory("show");
 
 		System.out.println("Элементы коллекции: ");

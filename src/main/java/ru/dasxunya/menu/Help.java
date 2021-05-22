@@ -1,7 +1,5 @@
 package ru.dasxunya.menu;
 
-import java.util.*;
-
 import static ru.dasxunya.utils.Historian.*;
 
 /**
@@ -11,9 +9,8 @@ public class Help {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		AddHistory("help");
 
 		System.out.println(

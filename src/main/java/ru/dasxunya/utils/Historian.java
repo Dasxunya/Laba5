@@ -1,8 +1,6 @@
 package ru.dasxunya.utils;
 
-import ru.dasxunya.core.*;
-
-import static ru.dasxunya.core.App.*;
+import static ru.dasxunya.core.App.history;
 
 /**
  * The type Historian.

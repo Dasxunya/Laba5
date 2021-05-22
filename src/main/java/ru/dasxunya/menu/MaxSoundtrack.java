@@ -13,9 +13,8 @@ public class MaxSoundtrack {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		AddHistory("max_soundtrack");
 
 		System.out.println("SoundtrackName является максимальным: ");
@@ -25,7 +24,7 @@ public class MaxSoundtrack {
 			System.out.println("Такой SoundtrackName отсутствует!");
 		}
 		else {
-			HumanBeing humanBeingWithMaxSoundtrack = App.humanBeings.stream().max(Comparator.comparing(human -> human.getSoundtrackName())).orElse(null);
+			HumanBeing humanBeingWithMaxSoundtrack = App.humanBeings.stream().max(Comparator.comparing(HumanBeing::getSoundtrackName)).orElse(null);
 
 			System.out.println(humanBeingWithMaxSoundtrack);
 		}

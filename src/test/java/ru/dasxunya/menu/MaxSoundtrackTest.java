@@ -16,7 +16,7 @@ public class MaxSoundtrackTest {
 		                                       "Такой SoundtrackName отсутствует!");
 
 		Consumer<Scanner> method = scanner -> {
-			MaxSoundtrack.run(scanner);
+			MaxSoundtrack.run();
 		};
 
 		runTest(input, expected, method);
@@ -31,7 +31,7 @@ public class MaxSoundtrackTest {
 
 		Consumer<Scanner> method = scanner -> {
 			Add3ExampleHumansToCollection();
-			MaxSoundtrack.run(scanner);
+			MaxSoundtrack.run();
 		};
 
 		runTest(input, expected, method);

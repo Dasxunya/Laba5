@@ -3,7 +3,6 @@ package ru.dasxunya.menu;
 import ru.dasxunya.core.*;
 
 import java.util.*;
-import java.util.stream.*;
 
 import static ru.dasxunya.utils.Historian.*;
 
@@ -14,9 +13,8 @@ public class UniqueWeapon {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		AddHistory("unique_weapon");
 
 		System.out.println("Уникальные значения поля weaponType: ");

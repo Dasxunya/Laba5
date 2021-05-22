@@ -2,7 +2,6 @@ package ru.dasxunya.menu;
 
 import ru.dasxunya.core.*;
 
-import javax.sound.midi.*;
 import java.time.*;
 import java.util.*;
 
@@ -36,7 +35,8 @@ public class Add {
      * @return the parameter human being
      */
     public static HumanBeing getParameterHumanBeing(Scanner scanner, Integer ID) {
-		Integer id = ID;
+		Integer id;
+		id = ID;
 		String name = getParameterName(scanner);
 		Coordinates coordinates = getParameterCoordinates(scanner);
 		ZonedDateTime creationDate = ZonedDateTime.now();
@@ -67,8 +67,7 @@ public class Add {
 		}
 
 		boolean cool = getParameterCool(scanner);
-		Car car = new Car(nameCar, cool);
-		return car;
+		return new Car(nameCar, cool);
 	}
 
     /**
@@ -104,7 +103,7 @@ public class Add {
      * @return the parameter name car
      */
     public static String getParameterNameCar(Scanner scanner) {
-		String nameCar = null;
+		String nameCar;
 		while (true) {
 			System.out.println("Введите название автомобиля: ");
 
@@ -190,9 +189,6 @@ public class Add {
 
 			try {
 				soundtrackName = scanner.nextLine().trim();
-				if (soundtrackName == null) {
-					throw new NullPointerException("soundtrackName не может быть null!");
-				}
 				if (soundtrackName.equals("")) {
 					throw new IllegalArgumentException("soundtrackName не может быть пустым!");
 				}
@@ -212,7 +208,7 @@ public class Add {
      */
     public static Double getParameterImpactSpeed(Scanner scanner) {
 		System.out.println("Скорость удара существа: ");
-		Double impactSpeed = null;
+		Double impactSpeed;
 		while (true) {
 			System.out.println("Введите скорость удара: ");
 
@@ -306,8 +302,7 @@ public class Add {
 		Long x = getParameterX(scanner);
 		int y = getParameterY(scanner);
 
-		Coordinates coordinates = new Coordinates(x, y);
-		return coordinates;
+		return new Coordinates(x, y);
 	}
 
     /**
@@ -344,7 +339,7 @@ public class Add {
      * @return the parameter x
      */
     public static Long getParameterX(Scanner scanner) {
-		Long x = null;
+		Long x;
 		while (true) {
 			System.out.println("Введите x: ");
 

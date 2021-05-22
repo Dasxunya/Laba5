@@ -113,7 +113,7 @@ public class App {
 	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Load.run(scanner);
+		Load.run();
 		Menu(scanner);
 	}
 
@@ -131,13 +131,13 @@ public class App {
 
 			switch (command) {
 				case "help":
-					Help.run(scanner);
+					Help.run();
 					break;
 				case "info":
-					Info.run(scanner);
+					Info.run();
 					break;
 				case "show":
-					Show.run(scanner);
+					Show.run();
 					break;
 				case "add":
 					Add.run(scanner);
@@ -149,10 +149,10 @@ public class App {
 					RemoveById.run(scanner);
 					break;
 				case "clear":
-					Clear.run(scanner);
+					Clear.run();
 					break;
 				case "save":
-					Save.run(scanner);
+					Save.run();
 					break;
 				case "add_if_max":
 					AddIfMax.run(scanner);
@@ -161,19 +161,19 @@ public class App {
 					AddIfMin.run(scanner);
 					break;
 				case "history":
-					History.run(scanner);
+					History.run();
 					break;
 				case "max_soundtrack":
-					MaxSoundtrack.run(scanner);
+					MaxSoundtrack.run();
 					break;
 				case "filter_name":
 					FilterName.run(scanner);
 					break;
 				case "unique_weapon":
-					UniqueWeapon.run(scanner);
+					UniqueWeapon.run();
 					break;
 				case "exit":
-					Exit.run(scanner);
+					Exit.run();
 					return;
 				default:
 					String commandExecuteScript = "execute_script ";

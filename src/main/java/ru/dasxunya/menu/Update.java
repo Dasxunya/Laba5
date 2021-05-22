@@ -25,7 +25,7 @@ public class Update {
 		System.out.println("Обновление элемента в коллекции: ");
 
 		HumanBeing humanBeing = Add.getParameterHumanBeing(scanner, id);
-		App.humanBeings.removeIf((human -> human.getId() == id));
+		App.humanBeings.removeIf((human -> human.getId().equals(id)));
 		App.humanBeings.add(humanBeing);
 	}
 }

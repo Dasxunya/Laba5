@@ -31,9 +31,7 @@ public class FilterName {
 			String name = getParameterName(scanner);
 
 			// https://metanit.com/java/tutorial/10.6.php
-			List<HumanBeing> humanBeingsWithSubstringName = App.humanBeings.stream().filter(humanBeing -> humanBeing.getName().indexOf(name) == 0).collect(Collectors.toList());
-
-			Collections.sort(humanBeingsWithSubstringName);
+			List<HumanBeing> humanBeingsWithSubstringName = App.humanBeings.stream().filter(humanBeing -> humanBeing.getName().indexOf(name) == 0).sorted().collect(Collectors.toList());
 
 			for (HumanBeing humanBeing : humanBeingsWithSubstringName) {
 				System.out.println(humanBeing);

@@ -1,14 +1,17 @@
 package ru.dasxunya.menu;
 
-import com.fasterxml.jackson.databind.*;
-import ru.dasxunya.core.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import ru.dasxunya.core.App;
+import ru.dasxunya.core.HumanBeing;
 
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.file.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.TreeSet;
 
-import static ru.dasxunya.utils.Utils.*;
+import static ru.dasxunya.utils.Utils.SYSTEM_VARIABLE;
+import static ru.dasxunya.utils.Utils.getObjectMapper;
 
 /**
  * The type Load.
@@ -17,9 +20,8 @@ public class Load {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		String filename = System.getenv(SYSTEM_VARIABLE);
 
 
@@ -37,7 +39,7 @@ public class Load {
 			// https://www.baeldung.com/jackson-object-mapper-tutorial
 			ObjectMapper objectMapper = getObjectMapper();
 			HumanBeing[] humanBeings = objectMapper.readValue(jsonStringBuilder.toString(), HumanBeing[].class);
-			App.humanBeings = new TreeSet<HumanBeing>(Arrays.asList(humanBeings));
+			App.humanBeings = new TreeSet<>(Arrays.asList(humanBeings));
 		}
 		catch (IOException e)
 		{

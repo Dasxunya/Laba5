@@ -32,7 +32,7 @@ public class Searcher {
 					throw new IllegalArgumentException("Идентификатор не может быть отрицательным!");
 				}
 				Integer finalId = id;
-				if (App.humanBeings.stream().noneMatch((humanBeing -> humanBeing.getId() == finalId))) {
+				if (App.humanBeings.stream().noneMatch((humanBeing -> humanBeing.getId().equals(finalId)))) {
 					System.out.println("Такого идентификатора не существует!");
 					continue;
 				}

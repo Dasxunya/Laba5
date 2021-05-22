@@ -33,7 +33,7 @@ public class ExecuteScript {
             if (App.execute_script_completed) {
                 System.out.println("Нельзя выполнять скрипт внутри другого вызова скрипта!");
             } else {
-                FileReader fileReader = null;
+                FileReader fileReader;
                 try {
                     fileReader = new FileReader(filename);
 

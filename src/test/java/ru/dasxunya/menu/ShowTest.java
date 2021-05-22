@@ -16,7 +16,7 @@ public class ShowTest {
 		                                       "Коллекция пуста!");
 
 		Consumer<Scanner> method = scanner -> {
-			Show.run(scanner);
+			Show.run();
 		};
 
 		runTest(input, expected, method);
@@ -30,7 +30,7 @@ public class ShowTest {
 
 		Consumer<Scanner> method = scanner -> {
 			AddExampleHumanToCollection();
-			Show.run(scanner);
+			Show.run();
 		};
 
 		runTest(input, expected, method);

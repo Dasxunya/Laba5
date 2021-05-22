@@ -2,8 +2,6 @@ package ru.dasxunya.menu;
 
 import ru.dasxunya.core.*;
 
-import java.util.*;
-
 import static ru.dasxunya.utils.Historian.*;
 
 /**
@@ -13,9 +11,8 @@ public class History {
     /**
      * Run.
      *
-     * @param scanner the scanner
-     */
-    public static void run(Scanner scanner) {
+	 */
+    public static void run() {
 		AddHistory("history");
 		System.out.println("Последние 11 команд: ");
 		for (String text : App.history) {
